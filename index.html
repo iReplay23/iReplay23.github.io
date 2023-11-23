@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MySQL Insertion</title>
+</head>
+<body>
+
+    <h1>Intelligent Taxi - Company</h1>
+
+    <button onclick="insertData()">CALL FOR A DRIVER!</button>
+
+    <div id="output"></div>
+
+    <script>
+        function insertData() {
+            // Make an AJAX request to a PHP script
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    // Display the response from the server
+                    document.getElementById("output").innerHTML = this.responseText;
+                }
+            };
+            xhr.open("GET", "insertData.php", true);
+            xhr.send();
+        }
+    </script>
+
+</body>
+</html>
